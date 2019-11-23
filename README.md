@@ -6,5 +6,5 @@
 * Edit the newly-created config.json file and populate it with your bot-token and the command prefix you'd like for the bot.
 
 # Available Commands
-* sitrep <system> : returns all the factions in <system> as well as their state and influence level.
-* traffic <system> : returns the daily/weekly/total traffic in the system
+* sitrep [system] : returns all the factions in [system] as well as their state and influence level.
+* traffic [system] : returns the daily/weekly/total traffic in [system].
