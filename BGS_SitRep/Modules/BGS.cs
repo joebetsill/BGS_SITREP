@@ -103,7 +103,7 @@ namespace BGS_SitRep.Modules
         }
 
         [Command("exrep")]
-        [Summary("'Returns the most likely expansion candidate.")]
+        [Summary("Returns the most likely expansion candidate.")]
 
         public async Task Exrep([Remainder] string msg)
         {
@@ -113,6 +113,14 @@ namespace BGS_SitRep.Modules
             //Todo: Get 20ly radius systems
             //Todo: Get the systems from that list with less than 7 slots filled
             //Todo: weed out systems from the resulting list that already have the faction, if passed a faction
+        }
+
+        [Command("setFaction")]
+        [Summary("Sets your faction in the configuration file.")]
+
+        public async Task setFaction([Remainder] string msg)
+        {
+            //TODO: set a faction in the configuration file for use with determining expansion candidates.
         }
 
         public struct SystemData
