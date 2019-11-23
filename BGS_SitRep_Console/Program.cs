@@ -1,13 +1,9 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
 
-namespace BGS_SITREP
+namespace BGS_SitRep
 {
     class Program
     {
@@ -16,9 +12,9 @@ namespace BGS_SITREP
         private CommandHandler _handler;
 
         static void Main(string[] args)
-            => new Program().StartAync().GetAwaiter().GetResult();
+            => new Program().StartAsync().GetAwaiter().GetResult();
 
-        public async Task StartAync()
+        public async Task StartAsync()
         {
             if (string.IsNullOrEmpty(Config.bot.token)) return;
             _client = new DiscordSocketClient(new DiscordSocketConfig
