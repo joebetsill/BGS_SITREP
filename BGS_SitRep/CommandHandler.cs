@@ -27,7 +27,7 @@ namespace BGS_SitRep
             var context = new SocketCommandContext(_client, message);
             int argPos = 0;
 
-            if (message.HasStringPrefix(Config.bot.cmdPrefix, ref argPos) 
+            if (message.HasStringPrefix(Config.Bot.CmdPrefix, ref argPos) 
                 || message.HasMentionPrefix(_client.CurrentUser, ref argPos))
             {
                 var result = await _service.ExecuteAsync(context, argPos, null);
