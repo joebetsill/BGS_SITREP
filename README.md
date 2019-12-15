@@ -9,3 +9,4 @@
 Remember that all commands must begin with the prefix from the configuration file, e.g., if the command prefix is '$', then the command would be '$sitrep Sol'
 * **sitrep *[system]*** : returns all the factions in [system] as well as their state and influence level. If fewer than 7 factions are in a system, a message will be displayed indicating such.
 * **traffic *[system]*** : returns the daily/weekly/total traffic in [system].
+* **exrep *[system]*** : returns the likely expansion candidate for any particularr system. Must set a faction in the config file.
