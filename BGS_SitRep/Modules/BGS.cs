@@ -137,7 +137,6 @@ namespace BGS_SitRep.Modules
                 Console.WriteLine("System " + msg + " was not found!");
                 return;
             }
-           
 
             List<SphereData> systems = new List<SphereData>();
 
@@ -163,6 +162,8 @@ namespace BGS_SitRep.Modules
                 orderby system.distance
                 select system;
 
+            int originCheck = 0;
+
             foreach (var s in sorted)
             {
                 // Grab system data
@@ -180,6 +181,14 @@ namespace BGS_SitRep.Modules
                     throw;
                 }
 
+                // Check if the faction in the config file is at the system checked, and warn.
+                if (system.name == Config.Bot.Faction & originCheck == 0)
+                {
+                    originCheck++;
+                    await Context.Channel.SendMessageAsync("`Warning: " + Config.Bot.Faction + " is not in " +
+                                                           system.factions[0].name + "!`");
+                }
+    
                 //Check the the number of factions and if the configured faction occupies the system
                 int total = 0;
                 int occupiedAlready = 0;
@@ -206,7 +215,8 @@ namespace BGS_SitRep.Modules
                 if (total < 7 && total > 0 && occupiedAlready != 1 
                     & s.name != "Sol" & s.name != "Sirius") // Some special systems don't follow the rules.
                 {
-                    await Context.Channel.SendMessageAsync("`" + s.name.ToUpper() + " is the most likely expansion candidate for " + msg.ToUpper() + ".`");
+                    await Context.Channel.SendMessageAsync("`" + s.name.ToUpper() + " is the most likely expansion candidate for " 
+                                                           + Config.Bot.Faction.ToUpper() + " in " + msg.ToUpper() + ".`");
                     await Context.Channel.SendMessageAsync("`Distance: " + s.distance + "ly`");
                     await Sitrep(s.name);
                     return; // Since we're sorted by distance, stop at the first hit.
