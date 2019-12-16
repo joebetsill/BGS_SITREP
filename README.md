@@ -3,7 +3,7 @@
 
 # Configuration
 * Run once to create the configuration file under a folder created at the run location named "Resources".
-* Edit the newly-created config.json file and populate it with your bot-token and the command prefix you'd like for the bot.
+* Edit the newly-created config.json file and populate it with your bot-token, the command prefix you'd like for the bot, and your chosen faction.
 * Restart the bot.
 
 # Available Commands
